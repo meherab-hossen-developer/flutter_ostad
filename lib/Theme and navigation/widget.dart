@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_1/layouts.dart';
+import 'package:flutter_1/Theme%20and%20navigation/layouts.dart';
 import 'layouts.dart';
 
 class flutterWidget extends StatelessWidget {

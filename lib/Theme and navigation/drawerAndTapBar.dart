@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_1/Theme%20and%20navigation/alert.dart';
 import 'package:flutter_1/Theme%20and%20navigation/assignment.dart';
-import 'package:flutter_1/nav_and_ui.dart';
+import 'package:flutter_1/Theme%20and%20navigation/nav_and_ui.dart';
 
 class Navigation extends StatelessWidget {
   const Navigation({super.key});
