@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'drawerAndTapBar.dart';
+
 class CounterApp extends StatefulWidget {
   CounterApp({super.key}){
 
@@ -21,6 +23,18 @@ class _CounterAppState extends State<CounterApp> {
     // TODO: implement initState
     super.initState();
     print('initState called');
+  }
+  @override
+  void deactivate() {
+    // TODO: implement deactivate
+    super.deactivate();
+    print('Deactivated');
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    print('Disposed');
   }
 
   @override
@@ -76,6 +90,13 @@ class _CounterAppState extends State<CounterApp> {
                 ),),
               ),
             ],
+          ),
+          SizedBox(height: 20,),
+          ElevatedButton(onPressed: (){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Navigation()));
+            print('Drawer and Tapbar button pressed');
+          },
+            child: Text('Drawer and TapBar'),
           ),
         ],
       ),

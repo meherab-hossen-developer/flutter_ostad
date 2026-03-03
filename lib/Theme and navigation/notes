@@ -5,3 +5,5 @@ Constructor path in flutter:
 2. CreateState
 3. InitState
 4. Constructor
+
+Dispose: Things before leaving a page. Methods can be added here.
