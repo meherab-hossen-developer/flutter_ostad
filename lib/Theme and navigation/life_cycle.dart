@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
 
-class CounterApp extends StatelessWidget {
-  const CounterApp({super.key});
+class CounterApp extends StatefulWidget {
+  CounterApp({super.key}){
+
+    print('Constructor 1 called');
+  }
+
+  @override
+  State<CounterApp> createState() {
+
+    print('Constructor 2 called');
+    return _CounterAppState();
+  }
+}
+
+class _CounterAppState extends State<CounterApp> {
+  int number = 5;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('initState called');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +36,46 @@ class CounterApp extends StatelessWidget {
         ),),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
             child:
-              Text("0", style: TextStyle(
-                fontSize: 50,
+              Text(
+                number.toString(),
+                style: TextStyle(
+                fontSize: 100,
                 fontWeight: FontWeight.bold,
                 color: Colors.purple,
               ),),
+          ),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(onPressed: (){
+
+                setState(() {
+                  number--;
+                  print('$number');
+                });
+              },
+                child: Text('-', style: TextStyle(
+                  fontSize: 35,
+                ),),
+              ),
+              ElevatedButton(onPressed: (){
+
+                setState(() {
+
+                  number++;
+                  print('$number');
+                });
+              },
+                child: Text('+', style: TextStyle(
+                  fontSize: 35,
+                ),),
+              ),
+            ],
           ),
         ],
       ),

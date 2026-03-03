@@ -1,1 +1,7 @@
 hot restart shortcut(modified): ctrl +shift + \
+
+Constructor path in flutter:
+1. Constructor
+2. CreateState
+3. InitState
+4. Constructor
