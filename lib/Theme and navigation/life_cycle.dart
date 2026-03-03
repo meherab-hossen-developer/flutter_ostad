@@ -15,7 +15,7 @@ class CounterApp extends StatefulWidget {
 }
 
 class _CounterAppState extends State<CounterApp> {
-  int number = 5;
+  int number = 0;
   @override
   void initState() {
     // TODO: implement initState
