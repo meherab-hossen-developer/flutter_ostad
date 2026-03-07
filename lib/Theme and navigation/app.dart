@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_1/Responsive_design/calculator_app.dart';
 import 'package:flutter_1/Theme%20and%20navigation/alert.dart';
 import 'package:flutter_1/Theme%20and%20navigation/assignment.dart';
 //import 'package:flutter_1/Theme%20and%20navigation/alert.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
 
       routes: {
 
-        '/': (context) => CounterApp(),
+        '/': (context) => Calculator(),
         // '/0': (context) => Alert(),
         // '/1': (context) => Assignment(),
         // '/2': (context) => Navigation()
