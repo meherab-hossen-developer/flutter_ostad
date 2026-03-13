@@ -8,6 +8,7 @@ import 'package:flutter_1/Theme%20and%20navigation/drawerAndTapBar.dart';
 import 'package:flutter_1/Theme%20and%20navigation/main_navigation.dart';
 
 import '../Responsive_design/life_cycle.dart';
+import '../Water_tracker_app/w.tracker.dart';
 import 'listView.dart';
 //import 'home.dart';
 // import 'nav_and_ui.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
 
       routes: {
 
-        '/': (context) => Calculator(),
+        '/': (context) => waterTracker(),
         // '/0': (context) => Alert(),
         // '/1': (context) => Assignment(),
         // '/2': (context) => Navigation()
