@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'addWaterButton.dart';
 
 class waterTracker extends StatefulWidget {
   const waterTracker({super.key});
@@ -8,6 +9,15 @@ class waterTracker extends StatefulWidget {
 }
 
 class _waterTrackerState extends State<waterTracker> {
+  int current = 0;
+  final int goal = 5000;
+
+  void waterAdd(int amount){
+    setState(() {
+      current = (current + amount).clamp(0, goal);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +61,7 @@ class _waterTrackerState extends State<waterTracker> {
                     ),
                   ),
                   SizedBox(height: 10,),
-                  Text('2000 LTR',style: TextStyle(
+                  Text('$current',style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: Colors.lightBlue,
@@ -82,6 +92,16 @@ class _waterTrackerState extends State<waterTracker> {
                 ),)
               ],
             ),
+            SizedBox(height: 10,),
+
+            Wrap(
+              children: [
+                addWbutton(amount: 100, onclick:()=> waterAdd(100)),
+                addWbutton(amount: 200, onclick:()=> waterAdd(200)),
+                addWbutton(amount: 300, onclick:()=> waterAdd(300)),
+                addWbutton(amount: 500, onclick:()=> waterAdd(500)),
+              ],
+            )
           ],
         ),
       ),
