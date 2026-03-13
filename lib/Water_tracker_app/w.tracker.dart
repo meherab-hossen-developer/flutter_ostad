@@ -27,6 +27,8 @@ class _waterTrackerState extends State<waterTracker> {
             SizedBox(
               height: 20,
             ),
+
+            //Total tank information
             Container(
               padding: EdgeInsets.all(80),
               decoration: BoxDecoration(
@@ -56,7 +58,30 @@ class _waterTrackerState extends State<waterTracker> {
                   ),),
                 ],
               ),
-            )
+            ),
+
+            SizedBox(height: 30,),
+
+            //
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  height: 100,
+                  width: 100,
+                  child: CircularProgressIndicator(
+                  backgroundColor: Colors.grey,
+                  strokeWidth: 10,
+                  value: 0.7,
+                  color: Color.fromRGBO(40, 163, 137, 1.0),
+                                ),
+                ),
+                Text('70%', style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),)
+              ],
+            ),
           ],
         ),
       ),
