@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_1/Responsive_design/calculator_app.dart';
+import 'package:flutter_1/Responsive_design/Calculator%20App/calculator_app.dart';
 import 'package:flutter_1/Theme%20and%20navigation/alert.dart';
 import 'package:flutter_1/Theme%20and%20navigation/assignment.dart';
 //import 'package:flutter_1/Theme%20and%20navigation/alert.dart';
@@ -12,7 +12,7 @@ import '../Water_tracker_app/w.tracker.dart';
 import 'listView.dart';
 //import 'home.dart';
 // import 'nav_and_ui.dart';
-//import 'widget.dart';
+//import 'Calculator App.dart';
 // import 'layouts.dart';
 //import 'listview.dart';
 // import 'gridView.dart';

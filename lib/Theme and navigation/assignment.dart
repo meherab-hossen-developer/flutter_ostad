@@ -1,17 +1,17 @@
 // Import Flutter's material design package for UI components
 import 'package:flutter/material.dart';
 
-// Define a stateless widget class named Assignment
+// Define a stateless Calculator App class named Assignment
 class Assignment extends StatelessWidget {
-  // Constructor with optional key parameter for widget identification
+  // Constructor with optional key parameter for Calculator App identification
   const Assignment({super.key});
 
-  // Override the build method that returns the widget tree
+  // Override the build method that returns the Calculator App tree
   @override
   Widget build(BuildContext context) {
     // Return a Scaffold - provides basic material design layout structure
     return Scaffold(
-      // Set the body of the scaffold to a Stack widget
+      // Set the body of the scaffold to a Stack Calculator App
       body: Stack(
         // Stack children - widgets layered on top of each other
         children: [
@@ -208,7 +208,7 @@ class Assignment extends StatelessWidget {
     );
   }
 
-  // Private method to create a destination card widget
+  // Private method to create a destination card Calculator App
   Widget _destinationCard(String title, String imagePath) {
     // Return a clipped rectangle with rounded corners
     return ClipRRect(
@@ -256,7 +256,7 @@ class Assignment extends StatelessWidget {
     );
   }
 
-  // Private method to create a package card widget
+  // Private method to create a package card Calculator App
   Widget _packageCard(String title, String subtitle, String imagePath, String price) {
     // Return a Material Design card
     return Card(
