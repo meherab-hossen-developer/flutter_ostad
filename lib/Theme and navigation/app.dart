@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_1/Responsive_design/Water_tracker_app/w.tracker.dart';
+//import 'package:flutter_1/Responsive_design/Water_tracker_app/w.tracker.dart';
+import 'package:flutter_1/Stateful_Widgets/Money_management_System/moneyMNG.dart';
 
 class MyApp extends StatelessWidget {
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
 
       routes: {
-        '/': (context) => waterTracker(),
+        '/': (context) => MoneyManagement(),
       },
     );
   }
