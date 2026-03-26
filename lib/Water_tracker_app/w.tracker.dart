@@ -20,6 +20,8 @@ class _waterTrackerState extends State<waterTracker> {
 
   @override
   Widget build(BuildContext context) {
+
+    double progress = (current / goal).clamp(0, 1);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(40, 163, 137, 1.0),
@@ -82,11 +84,11 @@ class _waterTrackerState extends State<waterTracker> {
                   child: CircularProgressIndicator(
                   backgroundColor: Colors.grey,
                   strokeWidth: 10,
-                  value: 0.7,
+                  value: progress,
                   color: Color.fromRGBO(40, 163, 137, 1.0),
                                 ),
                 ),
-                Text('70%', style: TextStyle(
+                Text('${(progress * 100).toInt()}%', style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),)
