@@ -42,6 +42,8 @@ class _waterTrackerState extends State<waterTracker> {
 
             //Total tank information
             Container(
+              height: 280,
+              width: 280,
               padding: EdgeInsets.all(80),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -58,13 +60,13 @@ class _waterTrackerState extends State<waterTracker> {
                 children: [
                   Text('In tank',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(height: 10,),
                   Text('$current',style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
                     color: Colors.lightBlue,
                   ),),

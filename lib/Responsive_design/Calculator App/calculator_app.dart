@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_1/Responsive_design/widget/calcButton.dart';
+import 'calcButton.dart';
 class Calculator extends StatefulWidget {
   const Calculator({super.key});
 

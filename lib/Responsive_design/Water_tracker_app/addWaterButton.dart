@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 class addWbutton extends StatelessWidget {
   final int amount;
-  IconData ? icon;
+  final IconData? icon;
   final VoidCallback onclick;
-  addWbutton({
-    super.key, required this.amount, required this.onclick,
+
+  const addWbutton({
+    super.key,
+    required this.amount,
+    required this.onclick,
+    this.icon,
   });
 
   @override
@@ -13,9 +17,11 @@ class addWbutton extends StatelessWidget {
     return SizedBox(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton.icon(onPressed: onclick,
+        child: ElevatedButton.icon(
+          onPressed: onclick,
           icon: Icon(icon ?? Icons.water_drop),
-          label: Text('+${amount} LTR'),),
+          label: Text('+$amount LTR'),
+        ),
       ),
     );
   }
