@@ -25,18 +25,67 @@ class _MoneyManagementState extends State<MoneyManagement> with SingleTickerProv
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            ElevatedButton(onPressed: (){}, child: Text('Add Earning'),),
-            ElevatedButton(onPressed: (){}, child: Text('Add Expense'),),
+            ElevatedButton(onPressed: (){
+              Navigator.pop(context);
+              _showForm(isEarning: true);
+            }, child: Text('Add Earning'),),
+            ElevatedButton(onPressed: (){
+              Navigator.pop(context);
+              _showForm(isEarning: false);
+            }, child: Text('Add Expense'),),
           ],
         ),
       );
     });
   }
 
-  void _showForm(){
-    showModalBottomSheet(context: context, builder: (context){
-      return Column(
+  void _showForm({required bool isEarning}){
 
+    TextEditingController titleController = TextEditingController();
+    TextEditingController amountController = TextEditingController();
+    DateTime entryDate = DateTime.now();
+
+    showModalBottomSheet(context: context, builder: (context){
+      return Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Text(isEarning ? 'Add Earning' : 'Add Expense',
+            style: TextStyle(
+              fontSize: 20,
+            ),),
+            SizedBox(height: 10,),
+            TextField(
+              controller: titleController,
+              decoration: InputDecoration(
+                labelText: 'Title',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+              ),
+            ),
+            SizedBox(height: 10,),
+            TextField(
+              controller: amountController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: 'Amount',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+              ),
+            ),
+            SizedBox(height: 10,),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: isEarning ? Colors.green : Colors.red,
+              ),
+              onPressed: (){},child: Text( isEarning ? 'Add Earning' : 'Add Expense',style: TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+            ),),)
+          ],
+        ),
       );
     });
   }
