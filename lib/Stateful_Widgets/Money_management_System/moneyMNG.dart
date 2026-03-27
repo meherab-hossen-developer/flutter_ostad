@@ -11,6 +11,35 @@ class _MoneyManagementState extends State<MoneyManagement> with SingleTickerProv
 
   late TabController _tabController;
 
+  List<Map<String, dynamic>> _earnings = [];
+  List<Map<String, dynamic>> _expenses = [];
+
+  int get totalExpenses => _expenses.fold<int>(
+    0,
+        (sum, item) => sum + (item['amount'] as int? ?? 0),
+  );
+  int get totalEarnings => _earnings.fold<int>(
+    0,
+        (sum, item) => sum + (item['amount'] as int? ?? 0),
+  );
+  int get balance => totalEarnings - totalExpenses;
+
+  void _addEntry(String title, int amount, DateTime date, bool isEarning){
+    setState(() {
+      if(isEarning){
+        _earnings.add({'title' : title,
+          'amount' : amount,
+          'date' : date,
+        });
+      }else{
+        _expenses.add({'title' : title,
+          'amount' : amount,
+          'date' : date,
+        });
+      }
+    });
+  }
+
   @override
   void initState(){
 
@@ -80,7 +109,13 @@ class _MoneyManagementState extends State<MoneyManagement> with SingleTickerProv
               style: ElevatedButton.styleFrom(
                 backgroundColor: isEarning ? Colors.green : Colors.red,
               ),
-              onPressed: (){},child: Text( isEarning ? 'Add Earning' : 'Add Expense',style: TextStyle(
+              onPressed: (){
+                if(titleController.text.isNotEmpty && amountController.text.isNotEmpty){
+                  _addEntry(titleController.text, int.parse(amountController.text), entryDate, isEarning);
+                  Navigator.pop(context);
+                }
+              },
+              child: Text( isEarning ? 'Add Earning' : 'Add Expense',style: TextStyle(
               fontSize: 16,
               color: Colors.white,
             ),),)
@@ -120,6 +155,15 @@ class _MoneyManagementState extends State<MoneyManagement> with SingleTickerProv
               _buildSummaryCard(title: 'Balance', value: 2400, color: Colors.black),
             ],
           ),
+          SizedBox(height: 10,),
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+              _buildList(_earnings, Colors.green, true),
+              _buildList(_expenses, Colors.red, false)
+            ],),
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -153,4 +197,28 @@ Widget _buildSummaryCard({required String title, required int value, required Co
       ),
     ),
   );
+}
+
+Widget _buildList(List<Map<String, dynamic>> items, Color color, bool isEarning){
+  return ListView.builder(
+      itemCount: items.length,
+      itemBuilder: (context, index){
+        return Card(
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundColor: color.withOpacity(0.2),
+              child: Icon(isEarning ? Icons.arrow_upward : Icons.arrow_downward, color: Colors.white),
+            ),
+            title: Text(items[index]['title']),
+            subtitle: Text(items[index]['date'].toString()),
+            trailing: Text(
+              '৳ ${items[index]['amount']}',
+              style: TextStyle(
+                color: color,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+        );
+      });
 }
