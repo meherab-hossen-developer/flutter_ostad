@@ -178,21 +178,25 @@ Widget _buildSummaryCard({required String title, required int value, required Co
 
   return Expanded(
     child: Card(
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            Text(title, style: TextStyle(
-              fontSize: 20,
-              color: color,
-            ),
-            ),Text(value.toString(),
-              style: TextStyle(
-              fontSize: 20,
-              color: color,
-            ),
-            ),
-          ],
+      child: SizedBox(
+        height: 110,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(title, style: TextStyle(
+                fontSize: 20,
+                color: color,
+              ),
+              ),Text(value.toString(),
+                style: TextStyle(
+                fontSize: 20,
+                color: color,
+              ),
+              ),
+            ],
+          ),
         ),
       ),
     ),
@@ -206,16 +210,21 @@ Widget _buildList(List<Map<String, dynamic>> items, Color color, bool isEarning)
         return Card(
           child: ListTile(
             leading: CircleAvatar(
-              backgroundColor: color.withOpacity(0.2),
+              backgroundColor: color,
               child: Icon(isEarning ? Icons.arrow_upward : Icons.arrow_downward, color: Colors.white),
             ),
-            title: Text(items[index]['title']),
-            subtitle: Text(items[index]['date'].toString()),
+            title: Text(items[index]['title'],style: TextStyle(
+              color: Colors.black,
+            ),),
+            subtitle: Text(items[index]['date'].toString(),style: TextStyle(
+              color: Colors.black,
+            ),),
             trailing: Text(
               '৳ ${items[index]['amount']}',
               style: TextStyle(
                 color: color,
-                fontWeight: FontWeight.bold
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
               ),
             ),
           ),
