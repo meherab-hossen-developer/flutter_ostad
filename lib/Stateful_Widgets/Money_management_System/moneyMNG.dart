@@ -6,7 +6,7 @@ class MoneyManagement extends StatefulWidget {
   @override
   State<MoneyManagement> createState() => _MoneyManagementState();
 }
-
+// with SingleTickerProviderMixin is used for TabController(mainly vsunc)[line: 47]
 class _MoneyManagementState extends State<MoneyManagement> with SingleTickerProviderStateMixin{
 
   late TabController _tabController;
