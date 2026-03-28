@@ -8,12 +8,12 @@ class MoneyManagement extends StatefulWidget {
 }
 // with SingleTickerProviderMixin is used for TabController(mainly vsunc)[line: 47]
 class _MoneyManagementState extends State<MoneyManagement> with SingleTickerProviderStateMixin{
-
+// tabController to control tabbar
   late TabController _tabController;
 
   List<Map<String, dynamic>> _earnings = [];
   List<Map<String, dynamic>> _expenses = [];
-
+//to get total expenses, fold is used to
   int get totalExpenses => _expenses.fold<int>(
     0,
         (sum, item) => sum + (item['amount'] as int? ?? 0),
