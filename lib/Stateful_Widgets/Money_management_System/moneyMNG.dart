@@ -150,9 +150,9 @@ class _MoneyManagementState extends State<MoneyManagement> with SingleTickerProv
         children: [
           Row(
             children: [
-              _buildSummaryCard(title: 'Earnings', value: 2500, color: Colors.black),
-              _buildSummaryCard(title: 'Expenses', value: 100, color: Colors.black),
-              _buildSummaryCard(title: 'Balance', value: 2400, color: Colors.black),
+              _buildSummaryCard(title: 'Earnings', value: totalEarnings, color: Colors.black),
+              _buildSummaryCard(title: 'Expenses', value: totalExpenses, color: Colors.black),
+              _buildSummaryCard(title: 'Balance', value: balance, color: Colors.black),
             ],
           ),
           SizedBox(height: 10,),
