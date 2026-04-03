@@ -1,0 +1,77 @@
+//here, <T> is the generic type(can store any type of data)
+class Node<T>{
+  T value;
+  //points the next value
+  Node<T>? next;
+  //required value and next. i.e. Next is a nullable value, if the linkedlist is emipty
+  Node({required this.value , this.next});
+}
+
+//main linkedlist class
+class LinkedList<T>{
+
+  //head stores the first node
+  Node<T>? head;
+
+  //boolean function. If the node is empty, returns true
+  bool get isEmpty => head == null;
+
+  //function to add a new element
+  void append(T value){
+
+    //initializes newnode.
+    final newNode = Node(value : value);
+
+    //check if the list is empty, then head will be new node value
+    if(isEmpty){
+      head = newNode;
+      return;
+    }
+
+    //Starts from the first node
+    Node<T>? currentNode = head;
+
+    //Loop until reaching last node, ? prevents null errors
+    while(currentNode?.next != null){
+
+      //make current node is the new node
+     currentNode = currentNode?.next;
+    }
+
+    //Link last node to new node
+    currentNode?.next = newNode;
+  }
+  void display(){
+    if(isEmpty){
+      print("List is empty");
+      return;
+    }
+    Node<T>? currentNode = head;
+    final List<T> values = [];
+    while(currentNode != null){
+      values.add(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    //to print the values
+    print(values.join(" -> "));
+  }
+}
+
+void main(){
+
+  //creates list of integer
+  final list = LinkedList<int>();
+
+  //prints whether the list is empty
+  print('Is list empty? ${list.isEmpty}');
+
+  //adds 10 to the linkedlist
+  list.append(10);
+  list.append(20);
+  list.append(30);
+
+  // Display the linked list
+  list.display();
+
+  print('Is list empty? ${list.isEmpty}'); // Should now print false
+}
